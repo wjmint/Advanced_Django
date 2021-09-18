@@ -1,7 +1,7 @@
 from django.db.models import fields
 from django.shortcuts import render
 # use it for redirect to certain url
-# from django.urls import reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic import (View, TemplateView, 
                                     ListView, DetailView,
                                     CreateView, UpdateView, 
@@ -31,4 +31,14 @@ class SchoolDetailCreateView(CreateView):
     fields = ("name","principals","location")
     model = models.School
     template_name = 'basic_app/school_form.html'
-   
+
+class SchoolDeleteView(DeleteView):
+    model = models.School
+    context_object_name = 'school_detail'
+    template_name = 'basic_app/delete_form.html'
+    success_url = reverse_lazy('basic_app:list')
+
+class StudentCreateView(CreateView):
+    model = models.Student
+    fields = ('name', 'age')
+    template_name = 'basic_app/student_create'

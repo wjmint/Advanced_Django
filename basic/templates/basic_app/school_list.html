@@ -1,7 +1,4 @@
-
-{% extends 'basic_app/basic_app.html' %} 
-
-{% block body_block %}
+{% extends 'basic_app/basic_app.html' %} {% block body_block %}
 
 <h1>Welcome to a list of all the Schools</h1>
 <ol>
@@ -11,4 +8,5 @@
 	</h2>
 	{% endfor %}
 </ol>
+<p><a class="btn btn-warning" href="{% url 'basic_app:create' %}">Create</a></p>
 {% endblock %}
