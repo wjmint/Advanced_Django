@@ -40,5 +40,6 @@ class SchoolDeleteView(DeleteView):
 
 class StudentCreateView(CreateView):
     model = models.Student
-    fields = ('name', 'age')
-    template_name = 'basic_app/student_create'
+    fields = ('name', 'age', 'school')
+    template_name = 'basic_app/student_create.html'
+    success_url = reverse_lazy('basic_app:detail')
